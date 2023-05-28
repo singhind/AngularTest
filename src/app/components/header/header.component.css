@@ -1,0 +1,234 @@
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Adjust the styles for screens up to 768px wide */
+  body {
+    font-size: 24px;
+  }
+
+  .clearfix {
+    background-size: cover;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #navv {
+    flex-direction: column;
+    align-items: center;
+     
+  }
+
+  #navv img {
+    margin-bottom: 10px;
+  }
+
+  #navv ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #navv li {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* Adjust the styles for screens larger than 768px wide */
+  body {
+    font-size: 26px;
+  }
+
+  .clearfix {
+    background-size: contain;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  #navv {
+    display: flex;
+    align-items: center;
+  }
+
+  #navv img {
+    margin-right: 10px;
+  }
+
+  #navv ul {
+    display: flex;
+    /* align-items: center; */
+  }
+
+  #navv li {
+    margin-right: 10px;
+  }
+}
+
+/* Common Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* .clearfix {
+  position: relative;
+  background-color: #f5f5f5;
+  background-image: url(https://i.stack.imgur.com/SvWWN.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
+} */
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+#navv {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #223152;
+  opacity: 0.85;
+}
+
+#navv img {
+  width: 100px;
+  height: auto;
+  background-color: rgb(219, 216, 216);
+}
+
+#navv ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+#navv li {
+  margin-right: 30px;
+}
+
+#navv a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+#navv a:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgb(236, 228, 182);
+  border-radius: 5px;
+  /* padding: 5px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* nav {
+    display: flex;
+    background-color: lightsalmon;
+    height: 50px;
+   
+}
+
+
+.sty ul li a:hover {
+color: rgb(255, 255, 255);
+background-color: rgb(228, 51, 32);
+padding: 4px;
+border-radius: 10px;
+
+}
+
+
+ul li{
+    display: inline-block;
+    padding-left: 65px;
+    text-align: center;
+    
+}
+
+li a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 25px;
+    text-align: center;
+}
+
+.dropdown-menu{
+   background-color: rgb(61, 61, 61);
+} */
+
+   
+  
+      /* Responsive styles */
+      /* @media screen and (max-width: 768px) {
+        .sty {
+          flex-wrap: wrap;
+          justify-content: center;
+          
+        }
+  
+        .logo {
+          margin-bottom: 10px;
+        }
+  
+        .form-inline {
+          padding-left: 10px;
+          margin-top: 10px;
+        }
+  
+    
+  
+        .btn-success {
+          width: 100%;
+        }
+  
+        li {
+          padding-left: 20px;
+        }
+      } */
+
+
+
+          /* .search-input {
+          margin-right: 0;
+          margin-bottom: 4px;
+        } */

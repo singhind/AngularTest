@@ -1,0 +1,116 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <form [formGroup]="logincust" class="form-box">
+          <h3 class="text-center">Login</h3>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" id="customerUsername" [(ngModel)]="customerUsername" [ngModelOptions]="{standalone: true}" name="customerUsername">
+          </div><br>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="customerPassword" [(ngModel)]="customerPassword" [ngModelOptions]="{standalone: true}" name="customerPassword">
+          </div><br>
+          <span>Create new Account: <a routerLink="/signup">Signup</a></span>
+          <br>
+          <br>
+          <button class="btn btn-primary" (click)="login22()" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="col-md-8 offset-md-3" style="background-color: rgb(0, 0, 0);">
+    
+    <form [formGroup]="logincust" class="form-box">
+        <h3 class="text-center">Login</h3>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" id="customerUsername" [(ngModel)] = "customerUsername" [ngModelOptions]="{standalone: true}" name="customerUsername">
+        </div><br>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="customerPassword" [(ngModel)] = "customerPassword"  [ngModelOptions]="{standalone: true}" name="customerPassword">
+        </div><br>
+        <span>Create new Account :<a routerLink="/signup">Signup</a></span>
+        <br>
+        <br>
+        <button class="btn btn-primary"  (click)="login()" type="submit">Login</button>
+    </form>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    
+    <form class="form-box">
+       
+        <h3 style="text-align: center">Login</h3>
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" formControlName="uname" class="form-control mb-3 mt-3" placeholder="Enter Username"/>
+        </div>
+  
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control mb-3 mt-3" placeholder="Enter Password"/>
+        </div>
+  
+        <span style="font-size: 15px">Create New Account <a routerLink="/signup">Signup</a></span>
+         <br/>
+         <button type="submit" class="btn btn-primary mt-1">Login</button>
+    </form>
+  </div> -->

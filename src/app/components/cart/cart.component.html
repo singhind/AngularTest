@@ -1,0 +1,148 @@
+
+
+<section class="container mt-4">
+  <h2 class="mb-4 text-center" style="border: double; padding: 10px; background-color: rgb(188, 169, 240); color: rgb(255, 255, 255);">
+    Cart-Items
+    <div class="text-center" style="float: right;">
+      <button class="btn btn-success" style= "width: 200px;  margin-top: 0px;" (click)="placeOrder(carts, menu, customer, menuType)"  ><b>Place Order</b></button>
+    </div>
+  </h2>
+  
+  <div class="row d-flex justify-content-center align-items-center" style="color: rgb(0, 0, 0);">
+      <div class="col-md-4" *ngFor="let cart of carts"  style="color: rgb(2, 2, 71)">
+          <div class="card mb-4" style="background-color: rgb(193, 179, 231);" >
+              <div class="card-body" style="color: rgb(0, 0, 0)">
+                  <img [src]="cart.menu.menuImage" class="card-img-top d-flex flex-column align-items-center"
+                      alt="Menu Image">
+                  <div class="card-body" style="background-color:  rgb(224, 218, 238);">
+                      <hr>
+                      <div class="card-title"  style="color: rgb(226, 15, 0)">
+                          <h5>{{ cart.menuName }}</h5>
+                          <!-- <small class="card-text small text-secondary">{{ menu.menuType.typeName }}</small> -->
+                      </div>
+                      <hr>
+                 
+                      <!-- <p class="card-text ">{{ product.productDesc }}</p> -->
+                      <p class="card-text"><b>Item : </b>{{ cart.menu.menuName }}</p>
+                      <div class="card-text">
+                        <p class="card-text"><b>Quantity : </b>{{cart.quantity}}</p>
+                    </div>
+                      <p class="card-text"><b>Price : </b> ₹{{ cart.menu.price }}.00/-</p>
+                      <p class="card-text"><b>Total Amount : </b> ₹{{ cart.menu.price * cart.quantity }}.00/-</p>
+                        <!-- Card content here -->
+                        <button (click)="Remove(cart.cartId)" class="btn btn-primary">Remove</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Place Order Button -->
+  <!-- <div class="text-center">
+    <button class="btn btn-success" style= "width: 200px; margin-bottom: 5px;" (click)="placeOrder(carts, menu, customer, menuType)"  ><b>Place Order</b></button>
+  </div> -->
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- (click)="Remove(menu)" -->
+
+
+<!-- cart.totalAmount -->
+
+
+<!-- (click)="placeOrder()" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="cart">
+    <h2>Cart</h2>
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <div *ngFor="let cart of cartItems">
+        <div class="cart-item">
+          <span class="menu-name">{{ cart.menuName }}</span>
+          <span class="price">{{ cart.price | currency }}</span>
+          <span class="quantity">{{ cart.quantity }}</span>
+          <span class="total-amount">{{ cart.totalAmount | currency }}</span>
+          <button>Remove</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <div class="cart">
+    <h2>Cart</h2>
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <div *ngFor="let cart of cartItems">
+        <div class="cart-item">
+          <span class="menu-name">{{ cart.menuName }}</span>
+          <span class="price">{{ cart.price | currency }}</span>
+          <span class="quantity">{{ cart.quantity }}</span>
+          <span class="total-amount">{{ cart.totalAmount | currency }}</span>
+          <button>Remove</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template>
+  </div> -->

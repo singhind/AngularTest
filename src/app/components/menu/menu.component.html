@@ -1,0 +1,280 @@
+
+<!-- Search Bar -->
+<div class="text-center" style="margin-bottom: 20px;" >
+  <div class="form-group">
+      <input type="text" style="text-align: center; margin-top: 5px;" class="form-control" placeholder="Search Your Menu-items here" [(ngModel)]="searchTerm"
+          (input)="findMenuByName()">
+  </div>
+</div>
+
+
+
+<!-- Genre Dropdown menu -->
+<div class="text-center">
+  <select [(ngModel)]="selectedMenuType" (change)="findMenuByTypeName()" class="custom-dropdown" style="background-color: rgb(160, 156, 156); width: 200px; border: 3px solid rgb(83, 83, 83); border-radius: 5px;">
+      <option value="" style="background-color: rgb(248, 242, 242);">Category</option>
+      <option *ngFor="let typeName of menuType" [value]="typeName">{{ typeName }}</option>
+  </select>
+</div>
+
+
+
+<section class="container mt-4">
+  <h2 class="mb-4 text-center" style="border: double; padding: 10px; background-color: rgb(240, 171, 169); color: rgb(255, 255, 255);">Menu-Items</h2>
+  
+  <div class="row d-flex justify-content-center align-items-center" style="color: rgb(0, 0, 0);">
+      <div class="col-md-4" *ngFor="let menu of findByMenu"  style="color: rgb(2, 2, 71)">
+          <div class="card mb-4" style="background-color: rgb(238, 188, 188)" >
+              <div class="card-body" style="color: rgb(0, 0, 0)">
+                  <img [src]="menu.menuImage" class="card-img-top d-flex flex-column align-items-center"
+                      alt="Menu Image">
+                  <div class="card-body" style="background-color: rgb(226, 203, 203);">
+                      <hr>
+                      <div class="card-title"  style="color: rgb(226, 15, 0)">
+                          <h5>{{ menu.menuName }}</h5>
+                          <small class="card-text small text-secondary">{{ menu.menuType.typeName }}</small>
+                      </div>
+                      <hr>
+                      <!-- <p class="card-text ">{{ product.productDesc }}</p> -->
+                      <p class="card-text"><b>Item: </b>{{ menu.menuName }}</p>
+                      <p class="card-text"><b>Price:</b> ₹{{ menu.price }}.00/-</p>
+                      <!-- <p>Quantity : <input type="number" name="Quantity" [(ngModel)]="menu.quantity" min="1" style="width: 50px; float: right;"/></p> -->
+                      <p>Quantity : <input type="number" name="Quantity" [(ngModel)]="menu.quantity" min="1" style="width: 50px; float: right;"/></p>
+                      <!-- Card content here -->
+                        <button (click)="addToCart(menu, customer)" class="btn btn-primary">Add to Cart</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</section>
+
+
+
+<!-- (click)="addToCart(menu)" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h1 class="Menu" style="text-align: center; padding:20px; color: brown; text-decoration: underline;">Menu-Items</h1>
+<div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://media.istockphoto.com/id/1130325906/photo/crispy-onion-bhajis-with-sweet-chilli-sauce-on-white-wooden-board.jpg?s=612x612&w=0&k=20&c=1Yd1me6XDCF_C6IAM0Y19EbqIjgFUfnFtEre8hw2tuo=" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Veg-Pakoras</h5>
+          <p class="card-text">Veg crispy pakoras with tangy-sweet-chilli sauce on white wooden board.</p>
+          <p><strong>Price : </strong>₹ 30</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://previews.123rf.com/images/lenyvavsha/lenyvavsha1710/lenyvavsha171000011/87404107-kashmiri-dum-aloo-spicy-potato-closeup-on-the-pan-on-the-table-horizontal.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Kashmiri Aloo Dum</h5>
+          <p class="card-text">Delicious Kashmiri Dum Aloo with full of gravy gives you a full taste.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+     <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://www.chefkunalkapur.com/wp-content/uploads/2021/11/3F3A1876-copy-1300x867.jpg?v=1636356843" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Kadhai Paneer</h5>
+              <p class="card-text">Spicy and hot Kadhai paneer with deep gravy and full of taste.</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+      </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://madhurasrecipe.com/wp-content/uploads/2020/10/Matar-Paneer-Hindi-Recipe.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Matar Paneer</h5>
+          <p class="card-text">Tasty, Delicious and Spicy Matar paneer with deep gravy and full of taste.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.sharmispassions.com/wp-content/uploads/2014/07/VegPulao1-500x375.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Polao</h5>
+          <p class="card-text">Fresh Blosom Polao with with green matar and kajju with all tasty vegies.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://i.ytimg.com/vi/vwtelJNe7ls/hqdefault.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Chapati</h5>
+          <p class="card-text">Soft and Puffed fresh hot chapati with butter and in plain both.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+  </div>
+
+
+  <div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://media.istockphoto.com/id/178776427/photo/three-chicken-tikka-kebabs-on-a-fancy-plate.jpg?s=612x612&w=0&k=20&c=ectF1ZkFuv8EfScUZvMT11QIiZZJY582xjEsVFaJFZw=" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Tikka</h5>
+          <p class="card-text">Fresh hot red and juicy Chicken Tikka in stick with full of taste.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://thumbs.dreamstime.com/b/lamb-curry-mutton-traditional-spicy-indian-dish-authentic-vindaloo-fiery-red-goan-154072181.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mutton</h5>
+          <p class="card-text">Best of spicy delicious Mutton with full of deep gravy and wonderful taste.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://vismaifood.com/storage/app/uploads/public/fa9/eb5/467/thumb__700_0_0_0_auto.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Fish</h5>
+          <p class="card-text">Enjoy one of the best Rohu Fish and other varietes of fish with full of gravy and taste.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+  </div>
+
+
+  <div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://t3.ftcdn.net/jpg/01/14/51/60/360_F_114516029_Z2B6FO30AB6ZR3v9WHXjpXmJScaiLtzk.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Biryani</h5>
+          <p class="card-text">Wonderful and tasty full plate Chicken Biryani with two leg pieces and one egg.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.pcclean.io/wp-content/uploads/2021/11/2083791793196509400.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Coca-Cola</h5>
+          <p class="card-text">Enjoy and Chill with Coca-Cola one of the oldest and best brand cold drinks.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/928/1016/1015/ice-drops-glass-bank-wallpaper-preview.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Pepsi</h5>
+          <p class="card-text">Refresh yourself with chill Pepsi and restart your day with full energy.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+  </div>
+
+
+  <div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://media.istockphoto.com/id/1311373994/photo/milk-shakes-in-plastic-cups-and-straws-on-a-dark-wooden-table.jpg?b=1&s=170667a&w=0&k=20&c=IxXcx8bnMtFSjuWDRtyzBXJq1UFD2NLc6AMxfdwd4xs=" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Milk-Shake</h5>
+          <p class="card-text">Enjoy and make your day with Cold Milk-Shake in the hot summer days.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://t3.ftcdn.net/jpg/00/68/72/18/360_F_68721836_err32AQcImc8gHTM2vWAZ6W3ZZqhtLjN.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mineral-Water</h5>
+          <p class="card-text">Its good to refresh yourself with Chill Mineral-Water after some meal.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://t4.ftcdn.net/jpg/01/96/15/59/360_F_196155910_nNiINPTtGwTwwqAzu8rMywveJq3XJYXw.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Rasmalai</h5>
+          <p class="card-text">Enjoy with tasty, soft, sweet and spongy Rasmalai after some meal.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+  </div>
+
+
+
+  <div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://media.istockphoto.com/id/487960671/photo/homemade-dark-chocolate-ice-cream-cone.jpg?s=612x612&w=0&k=20&c=gx_PFLq0yc4Jdey1AVOVzWAtqZ5SnzGIVkTs57T0g5o=" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Ice-Cream</h5>
+          <p class="card-text">Enjoy and refresh your mood with Ice-Cream in the hot summer days.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/262/298/552/sweet-dessert-batch-pies-wallpaper-preview.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Cakes</h5>
+          <p class="card-text">Variety of yummy & tasty cakes like Vanilla and Strawberry flavour.</p>
+          
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://as1.ftcdn.net/v2/jpg/01/41/76/88/1000_F_141768845_jsbAAHDmY0zTasngshLDnKEzpwbA9noi.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Kulfi</h5>
+          <p class="card-text">Feel the Real taste of Kulfi in different flavour like kesar and pista.</p>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+  </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

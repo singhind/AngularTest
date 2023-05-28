@@ -1,0 +1,58 @@
+.form-box1 {
+    width: 100%;
+    max-width: 600px;
+    border: 4px solid rgb(219, 161, 161);
+    border-radius: 15px;
+    height: auto;
+    padding: 25px;
+    transform: translate(-20%, 0%);
+    background-color: rgb(250, 198, 198);
+    margin: 40px auto;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .form-box1 {
+      max-width: 90%;
+      margin-top: 20px;
+      padding: 15px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .form-box1{
+    margin-top: 40px;
+    width: 600px;
+    border: 4px solid rgb(219, 161, 161);
+    border-radius: 15px;
+    height: auto;
+    padding: 25px;
+    background-color: rgb(250, 198, 198);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 75%;
+   
+} */
+

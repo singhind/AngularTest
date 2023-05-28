@@ -1,0 +1,39 @@
+<table class="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        
+        <th class="text-center">Order Date</th>
+        <!-- <th>Payment Method</th> -->
+        <th class="text-center">Cart Items</th>
+        <th>Final Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderId }}</td>
+        <td>{{ order.orderDate }}</td>
+        <!-- <td>{{ order.payment.paymentMethod }}</td> -->
+        <td>
+          <table class="cart-items-table">
+            <tr>
+              <th>Menu Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Menu Image</th>
+            </tr>
+            <tr *ngFor="let cart of order.carts">
+              <td>{{ cart.menuName }}</td>
+              <td>{{ cart.quantity }}</td>
+              <td>{{ cart.price }}</td>
+              <td class="card-img-top d-flex flex-column align-items-center"><img [src]="cart.menu.menuImage" alt="{{ cart.menuName }}" height="80" width="60"></td>
+            </tr>
+          </table>
+        </td>
+        
+        <td >₹<b style="font-size: xx-large; background-color: yellow; ">{{ order.finalAmount }}</b>
+          <p style="margin-top: 20px;"><button style="width: 100px" class="btn btn-danger" (click)="cancelOrder(order.orderId)">Cancel Order</button></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
